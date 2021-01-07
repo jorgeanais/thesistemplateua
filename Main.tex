@@ -1,0 +1,219 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Masters/Doctoral Thesis 
+% LaTeX Template
+% Version 2.5 (27/8/17)
+%
+% This template was downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Version 2.x major modifications by:
+% Vel (vel@latextemplates.com)
+%
+% This template is based on a template by:
+% Steve Gunn (http://users.ecs.soton.ac.uk/srg/softwaretools/document/templates/)
+% Sunil Patel (http://www.sunilpatel.co.uk/thesis-template/)
+%
+% Template license:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 
+% Template modificado por Héctor Salas y Jorge Anais el 7 de Enero de 2020.
+% 
+% Solucionado el tema de la bibliografía (emula estilo revista astronomía)
+% Solucionado el error que daba al compilar el abstract
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[letterpaper, english, 11pt]{MastersDoctoralThesis}  % Para cambiar el idioma english/spanish, pero el español no está totalmente soportado.
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{amssymb}
+\usepackage{csquotes} %Package biblatex Warning: 'babel/polyglossia' detected but 'csquotes' missing.
+\usepackage{longtable}
+\usepackage{float}
+\usepackage{xcolor} % Allows to use colored fonts.
+
+% Added by Jorge
+\usepackage{hyperref}
+\usepackage{aas_macros}
+\usepackage{rotating}
+\usepackage{tabularx}
+\usepackage{multirow}
+\usepackage{amsmath}
+
+% \Bibliography
+\usepackage[backend=biber, style=authoryear, maxcitenames=1, maxbibnames=10, natbib=true, uniquelist=false]{biblatex}
+\addbibresource{references.bib}
+
+\usepackage{todonotes}
+
+
+%for subfigures
+\usepackage{caption}
+\usepackage{subcaption}
+
+%----------------------------------------------------------------------------------------
+%	THESIS INFORMATION
+%----------------------------------------------------------------------------------------
+
+% Búsqueda y caracterización de candidatos a cúmulos estelares en el extremo lejano de la barra galáctica
+\thesistitle{Título de la tesis} % Your thesis title, this is used in the title and abstract, print it elsewhere with \ttitle
+\author{Nombre \textsc{Apellidos}} % Your name, this is used in the title page and abstract, print it elsewhere with \authorname
+\supervisor{Dr. Nombre \textsc{Apellido} \\ Dr. Nombre2 \textsc{Apellido}} % Your supervisor's name, this is used in the title page, print it elsewhere with \supname
+\examiner{} % Your examiner's name, this is not currently used anywhere in the template, print it elsewhere with \examname
+\degree{Magíster en Astronomía} % Your degree name, this is used in the title page and abstract, print it elsewhere with \degreename
+% \author{Jorge \textsc{Anais Vilchez}} % Your name, this is used in the title page and abstract, print it elsewhere with \authorname
+\addresses{} % Your address, this is not currently used anywhere in the template, print it elsewhere with \addressname
+\keywords{} % Keywords for your thesis, this is not currently used anywhere in the template, print it elsewhere with \keywordnames
+\university{Universidad de Antofagasta} % Your university's name and URL, this is used in the title page and abstract, print it elsewhere with \univname
+\department{Centro de Astronomía} % Your department's name and URL, this is used in the title page and abstract, print it elsewhere with \deptname
+\faculty{} % Dejar en blanco
+
+
+\AtBeginDocument{
+\hypersetup{pdftitle=\ttitle} % Set the PDF's title to your title
+\hypersetup{pdfauthor=\authorname} % Set the PDF's author to your name
+\hypersetup{pdfkeywords=\keywordnames} % Set the PDF's keywords to your keywords
+}
+
+\begin{document}
+
+\frontmatter % Use roman page numbering style (i, ii, iii, iv...) for the pre-content pages
+
+\pagestyle{plain} % Default to the plain heading style until the thesis style is called for the body content
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\begin{titlepage}
+\begin{center}
+
+\vspace*{.06\textheight}
+{\scshape\LARGE \univname\par}\vspace{1.5cm} % University name
+\textsc{\Large Tesis de Magister}\\[0.5cm] % Thesis type
+
+\HRule \\[0.4cm] % Horizontal line
+{\huge \bfseries \ttitle\par}\vspace{0.4cm} % Thesis title
+\HRule \\[1.5cm] % Horizontal line
+ 
+\begin{minipage}[t]{0.3\textwidth}
+\begin{flushleft} \large
+\emph{Author:}\\
+{\authorname} % Author name - remove the \href bracket to remove the link
+\end{flushleft}
+\end{minipage}
+\begin{minipage}[t]{0.5\textwidth}
+\begin{flushright} \large
+\emph{Supervisors:} \\
+{\supname} % Supervisor name - remove the \href bracket to remove the link  
+\end{flushright}
+\end{minipage}\\[1.5cm]
+%\end{minipage}\\[3cm]
+ 
+\vfill
+\centering
+\includegraphics[width=0.9\textwidth]{Tesis/images/portada/logos.pdf}\\[.5cm] % Institution logo
+% 
+% \large \textit{A thesis submitted in fulfillment of the requirements\\ for the degree of \degreename}\\[0.3cm] % University requirement text
+% \textit{in the}\\[0.4cm]
+% \groupname\\\deptname\\[2cm] % Research group name and department name
+%  
+\vfill
+
+{\large \today}\\[4cm] % Date
+%\includegraphics{Logo} % University/department logo - uncomment to place it
+ 
+\vfill
+\end{center}
+\end{titlepage}
+
+%----------------------------------------------------------------------------------------
+%	ABSTRACT PAGE
+%----------------------------------------------------------------------------------------
+
+\begin{abstract}
+\addchaptertocentry{\abstractname} % Add the abstract to the table of contents
+Acá va el abstract.  No debería ser más largo que una página\ldots
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse vehicula arcu eget sapien imperdiet condimentum. Sed massa elit, sollicitudin vitae erat vulputate, imperdiet feugiat justo. Maecenas sapien orci, scelerisque vel placerat eget, congue nec ante. Vestibulum volutpat consequat aliquet. Curabitur egestas ante quis fringilla tempus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec luctus, magna in tincidunt cursus, mi ante sodales arcu, ac facilisis ex ligula id mi. Nunc laoreet ut nunc tincidunt condimentum. Aliquam ut nisi et ex tincidunt congue a quis mauris. Vivamus vitae aliquet tellus, at dignissim nulla.
+
+Nulla erat sapien, vehicula ut condimentum id, porttitor eu eros. Nulla lacinia enim id est suscipit, ut tincidunt enim congue. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Ut sed tempor enim. Phasellus vestibulum interdum neque. In hac habitasse platea dictumst. Nam interdum, orci et sagittis tristique, odio dolor pellentesque diam, a dignissim diam lacus vel libero. Duis urna massa, efficitur quis libero ut, maximus venenatis neque. Mauris facilisis massa dui, a convallis ipsum vestibulum sit amet. Fusce tristique tellus eget lorem sodales volutpat. Sed eu bibendum tortor, ac gravida mi. Aliquam rhoncus orci ante. Suspendisse at arcu lorem. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Curabitur et imperdiet urna, a sollicitudin massa.
+\end{abstract}
+
+
+%----------------------------------------------------------------------------------------
+%	ACKNOWLEDGEMENTS
+%----------------------------------------------------------------------------------------
+
+\begin{acknowledgements}
+\addchaptertocentry{\acknowledgementname} % Add the acknowledgements to the table of contents
+Los agradecimientos, mamá, papá, novies, etc. No se olviden de poner a su supervisor\ldots
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse vehicula arcu eget sapien imperdiet condimentum. Sed massa elit, sollicitudin vitae erat vulputate, imperdiet feugiat justo. Maecenas sapien orci, scelerisque vel placerat eget, congue nec ante. Vestibulum volutpat consequat aliquet. Curabitur egestas ante quis fringilla tempus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec luctus, magna in tincidunt cursus, mi ante sodales arcu, ac facilisis ex ligula id mi. Nunc laoreet ut nunc tincidunt condimentum. Aliquam ut nisi et ex tincidunt congue a quis mauris. Vivamus vitae aliquet tellus, at dignissim nulla.
+
+Nulla erat sapien, vehicula ut condimentum id, porttitor eu eros. Nulla lacinia enim id est suscipit, ut tincidunt enim congue. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Ut sed tempor enim. Phasellus vestibulum interdum neque. In hac habitasse platea dictumst. Nam interdum, orci et sagittis tristique, odio dolor pellentesque diam, a dignissim diam lacus vel libero. Duis urna massa, efficitur quis libero ut, maximus venenatis neque. Mauris facilisis massa dui, a convallis ipsum vestibulum sit amet. Fusce tristique tellus eget lorem sodales volutpat. Sed eu bibendum tortor, ac gravida mi. Aliquam rhoncus orci ante. Suspendisse at arcu lorem. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Curabitur et imperdiet urna, a sollicitudin massa.
+\end{acknowledgements}
+
+%----------------------------------------------------------------------------------------
+%	LIST OF CONTENTS/FIGURES/TABLES PAGES
+%----------------------------------------------------------------------------------------
+
+\tableofcontents % Prints the index
+
+\listoffigures % Prints the list of figures
+
+\listoftables % Prints the list of tables
+
+% %----------------------------------------------------------------------------------------
+% %	ABBREVIATIONS
+% %----------------------------------------------------------------------------------------
+% \begin{abbreviations}
+% \begin{acronym}
+    
+    
+% \end{acronym}
+
+% \end{abbreviations}
+
+
+%----------------------------------------------------------------------------------------
+%	THESIS CONTENT - CHAPTERS
+%----------------------------------------------------------------------------------------
+
+\mainmatter % Begin numeric (1,2,3...) page numbering
+
+\pagestyle{thesis} % Return the page headers back to the "thesis" style
+
+% Include the chapters of the thesis as separate files from the Chapters folder
+% Uncomment the lines as you write the chapters
+
+
+\include{Chapters/Chapter1}
+\include{Chapters/Chapter2} 
+\include{Chapters/Chapter3}
+\include{Chapters/Chapter4} 
+\include{Chapters/Chapter5} 
+\include{Chapters/Chapter6}
+
+%----------------------------------------------------------------------------------------
+%	THESIS CONTENT - APPENDICES
+%----------------------------------------------------------------------------------------
+
+\appendix % Cue to tell LaTeX that the following "chapters" are Appendices
+
+% Include the appendices of the thesis as separate files from the Appendices folder
+% Uncomment the lines as you write the Appendices
+
+\include{Appendices/AppendixA}
+%\include{Appendices/AppendixB}
+%\include{Appendices/AppendixC}
+
+%----------------------------------------------------------------------------------------
+%	BIBLIOGRAPHY
+%----------------------------------------------------------------------------------------
+
+\printbibliography[heading=bibintoc, title={References}]
+%----------------------------------------------------------------------------------------
+
+\end{document}
+
